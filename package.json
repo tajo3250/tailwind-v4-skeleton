@@ -1,7 +1,7 @@
 {
 	"name": "tailwind-v4-template",
 	"version": "1.0.0",
-	"description": "",
+	"description": "Modern website template with Tailwind CSS v4",
 	"author": "@xtaiao",
 	"license": "MIT",
 	"type": "module",
@@ -11,7 +11,7 @@
 		"dev:js": "node build.js --watch",
 		"dev:server": "npx serve dist -p 3000",
 		"build": "npm-run-all build:clean build:parallel",
-		"build:clean": "if exist dist rmdir /s /q dist && mkdir dist\\css dist\\js dist\\images",
+		"build:clean": "node clean.js",
 		"build:parallel": "npm-run-all --parallel build:tailwind build:js build:copy",
 		"build:tailwind": "tailwindcss --input ./src/styles/tailwind.css --output ./dist/css/output.css --minify",
 		"build:js": "node build.js",
