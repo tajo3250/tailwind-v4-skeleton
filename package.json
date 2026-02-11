@@ -11,11 +11,11 @@
 		"dev:js": "node build.js --watch",
 		"dev:server": "npx serve dist -p 3000",
 		"build": "npm-run-all build:clean build:parallel",
-		"build:clean": "rm -rf dist && mkdir -p dist/css dist/js dist/images",
+		"build:clean": "if exist dist rmdir /s /q dist && mkdir dist\\css dist\\js dist\\images",
 		"build:parallel": "npm-run-all --parallel build:tailwind build:js build:copy",
 		"build:tailwind": "tailwindcss --input ./src/styles/tailwind.css --output ./dist/css/output.css --minify",
 		"build:js": "node build.js",
-		"build:copy": "cp -r public/* dist/ 2>/dev/null || true && cp src/pages/*.html dist/"
+		"build:copy": "node copy.js"
 	},
 	"devDependencies": {
 		"@tailwindcss/cli": "^4.1.18",
